@@ -1,13 +1,10 @@
-
- // addEventListner is to call whenever we specified thing happens
-    // this-shows u which button is clicked
-
 for(var i=0;i<document.querySelectorAll(".drum").length;i++){
 
     document.querySelectorAll(".drum")[i].addEventListener("click",click)
     function click(){
 
     var buttonInnerHTML=this.innerHTML;
+       
     keypressed(buttonInnerHTML);
         this.style.color="black";
 
@@ -18,13 +15,15 @@ for(var i=0;i<document.querySelectorAll(".drum").length;i++){
     }
 
 }
+
 document.addEventListener("keypress",function(event){
   keypressed(event.key);
   buttonAnimation(event.key);
 });
 
-function keypressed(key){     
-       switch (buttonInnerHTML) {
+
+function keypressed(key){
+    switch (key) {
         case "w":
             var tom1= new Audio("sounds/tom-1.mp3");
             tom1.play();
@@ -59,6 +58,7 @@ function keypressed(key){
        
        }
 }
+
 function buttonAnimation(currentKey){
 
     var activeButton =document.querySelector("."+currentKey);
@@ -74,21 +74,3 @@ function buttonAnimation(currentKey){
     
     
 }
-
-
-
-
-
-
-
-    
-
-        this.style.color="black";
-        
-        
-    
-    }
-
-}
-
-
