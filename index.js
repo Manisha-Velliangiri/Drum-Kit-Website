@@ -8,6 +8,22 @@ for(var i=0;i<document.querySelectorAll(".drum").length;i++){
     function click(){
 
     var buttonInnerHTML=this.innerHTML;
+    keypressed(buttonInnerHTML);
+        this.style.color="black";
+
+    buttonAnimation(buttonInnerHTML);
+        
+        
+    
+    }
+
+}
+document.addEventListener("keypress",function(event){
+  keypressed(event.key);
+  buttonAnimation(event.key);
+});
+
+function keypressed(key){     
        switch (buttonInnerHTML) {
         case "w":
             var tom1= new Audio("sounds/tom-1.mp3");
@@ -42,8 +58,22 @@ for(var i=0;i<document.querySelectorAll(".drum").length;i++){
             console.log(buttonInnerHTML);
        
        }
+}
+function buttonAnimation(currentKey){
+
+    var activeButton =document.querySelector("."+currentKey);
+    
+    activeButton.classList.add("pressed");
+    
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+        this.style.color="black";
+    }, 150);
 
 
+    
+    
+}
 
 
 
